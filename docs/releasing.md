@@ -1,5 +1,29 @@
-# Release protocol
+# Releasing
 
-This candidate contains no release record and is publication-blocked. After review and dependency release verification, record the intended SemVer version in CHANGELOG.md and run the identical package lane for PR and default-branch checks. Only a maintainer merge may trigger release-on-record; agents do not create tags. Existing tags and releases are immutable.
+The newest stable heading in CHANGELOG.md records the release version. Navigation
+starts at 0.1.0. Maintainers review and rebase-merge the release PR into the default
+branch. No manual setup command is required.
 
-The built Composer archive must install into a fresh no-dev authoritative-classmap consumer and execute the documented example. A separate verification session records the actual source SHA, archive digests, dependency identities, manifests, registry coordinate and gate evidence outside the source tree. Publication alone does not authorize App adoption. Roll back consumers by exact-pinning an earlier verified release; never move tags. Report security issues through repository security reporting.
+The release workflow reuses the complete package CI at the actual post-rebase
+commit: syntax, API and architecture checks, maximum-level static analysis,
+coding standards, package-owned behavior tests, examples, security audit, and
+the isolated no-dev archive consumer. Package gate also requires the common
+release automation regression tests. A failure prevents publication.
+
+After that gate succeeds, the publisher creates the exact version tag at the
+tested commit and publishes the GitHub release in the same workflow. Composer
+consumers use the semantic tag and registry source archive. Existing tags and
+releases are never changed. Re-running the workflow verifies an existing release;
+an unfinished tag is publishable only when it matches the tested commit.
+
+Release identity comes from the event commit, never the former PR head. Publication
+is queued per branch. Regression fixtures cover real rebases, annotated and
+ancestor tags, retries, source mismatches, API failures, and optional platform
+settings. Run bash tools/test-release-record.sh, bash tools/test-release-integrity.sh,
+and bash tools/test-release-on-record.sh when changing those helpers.
+
+Normal publishing does not require branch protection, an immutable-release
+setting, or an external attestation. Repository permissions remain effective.
+Publication is distinct from independent artifact verification and App adoption.
+Confirm the published tag/source and clean consumer result before the separate
+App integration round. Do not claim a release exists until GitHub publishes it.

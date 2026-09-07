@@ -40,3 +40,30 @@ jobs:
 
       - name: Run complete package checks
         run: composer check
+
+  release-tests:
+    name: Release automation tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Verify release records, rebases, publication and retries
+        run: |
+          bash tools/test-release-record.sh
+          bash tools/test-release-integrity.sh
+          bash tools/test-release-on-record.sh
+
+  package-gate:
+    name: Package gate
+    if: always()
+    needs: [check, release-tests]
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Require all package and release tests
+        env:
+          PACKAGE_RESULT: ${{ needs.check.result }}
+          RELEASE_RESULT: ${{ needs.release-tests.result }}
+        run: test "$PACKAGE_RESULT" = success && test "$RELEASE_RESULT" = success
