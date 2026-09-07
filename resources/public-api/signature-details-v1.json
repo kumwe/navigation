@@ -1,844 +1,840 @@
 {
-    "schema": "kumwe-package-public-api/v1",
+    "schema": "kumwe-public-api-details/v1",
     "package": "kumwe/navigation",
     "release": "0.1.1",
     "namespace": "Kumwe\\Navigation\\",
-    "symbols": {
-        "Kumwe\\Navigation\\Application\\MenuItemRecord": {
+    "symbols": [
+        {
+            "name": "Kumwe\\Navigation\\Application\\MenuItemRecord",
             "kind": "class",
-            "stability": "stable",
-            "file": "src/Application/MenuItemRecord.php",
-            "abstract": false,
-            "final": true,
-            "readonly": true,
-            "parent": null,
-            "interfaces": [],
-            "constants": {},
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "static": false,
-                    "readonly": true
-                },
-                "menuId": {
-                    "type": "string",
-                    "static": false,
-                    "readonly": true
-                },
-                "parentId": {
-                    "type": "?string",
-                    "static": false,
-                    "readonly": true
-                },
-                "title": {
-                    "type": "string",
-                    "static": false,
-                    "readonly": true
-                },
-                "slug": {
-                    "type": "string",
-                    "static": false,
-                    "readonly": true
-                },
-                "path": {
-                    "type": "string",
-                    "static": false,
-                    "readonly": true
-                },
-                "position": {
-                    "type": "int",
-                    "static": false,
-                    "readonly": true
-                },
-                "version": {
-                    "type": "int",
-                    "static": false,
-                    "readonly": true
-                },
-                "createdAt": {
-                    "type": "DateTimeImmutable",
-                    "static": false,
-                    "readonly": true
-                },
-                "updatedAt": {
-                    "type": "DateTimeImmutable",
-                    "static": false,
-                    "readonly": true
-                },
-                "targetType": {
-                    "type": "string",
-                    "static": false,
-                    "readonly": true
-                },
-                "contentId": {
-                    "type": "?string",
-                    "static": false,
-                    "readonly": true
-                },
-                "targetUrl": {
-                    "type": "?string",
-                    "static": false,
-                    "readonly": true
-                },
-                "template": {
-                    "type": "?string",
-                    "static": false,
-                    "readonly": true
-                },
-                "colorScheme": {
-                    "type": "?string",
-                    "static": false,
-                    "readonly": true
-                }
-            },
-            "methods": {
-                "__construct": {
-                    "visibility": "public",
+            "methods": [
+                {
+                    "name": "__construct",
                     "static": false,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "menuId",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "parentId",
                             "type": "?string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "title",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "slug",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "path",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "position",
                             "type": "int",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "version",
                             "type": "int",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "createdAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "updatedAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "targetType",
                             "type": "string",
                             "optional": true,
+                            "default": "'content'",
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "contentId",
                             "type": "?string",
                             "optional": true,
+                            "default": "NULL",
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "targetUrl",
                             "type": "?string",
                             "optional": true,
+                            "default": "NULL",
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "template",
                             "type": "?string",
                             "optional": true,
+                            "default": "NULL",
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "colorScheme",
                             "type": "?string",
                             "optional": true,
+                            "default": "NULL",
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
-                    "return": null
+                    "return": ""
                 },
-                "toArray": {
-                    "visibility": "public",
+                {
+                    "name": "toArray",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            },
-            "deprecated": null
-        },
-        "Kumwe\\Navigation\\Application\\MenuRecord": {
-            "kind": "class",
-            "stability": "stable",
-            "file": "src/Application/MenuRecord.php",
-            "abstract": false,
-            "final": true,
-            "readonly": true,
-            "parent": null,
-            "interfaces": [],
-            "constants": {},
-            "properties": {
-                "id": {
+            ],
+            "properties": [
+                {
+                    "name": "id",
                     "type": "string",
-                    "static": false,
                     "readonly": true
                 },
-                "handle": {
+                {
+                    "name": "menuId",
                     "type": "string",
-                    "static": false,
                     "readonly": true
                 },
-                "title": {
-                    "type": "string",
-                    "static": false,
+                {
+                    "name": "parentId",
+                    "type": "?string",
                     "readonly": true
                 },
-                "version": {
+                {
+                    "name": "title",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "slug",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "path",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "position",
                     "type": "int",
-                    "static": false,
                     "readonly": true
                 },
-                "createdAt": {
-                    "type": "DateTimeImmutable",
-                    "static": false,
+                {
+                    "name": "version",
+                    "type": "int",
                     "readonly": true
                 },
-                "updatedAt": {
+                {
+                    "name": "createdAt",
                     "type": "DateTimeImmutable",
-                    "static": false,
+                    "readonly": true
+                },
+                {
+                    "name": "updatedAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "targetType",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "contentId",
+                    "type": "?string",
+                    "readonly": true
+                },
+                {
+                    "name": "targetUrl",
+                    "type": "?string",
+                    "readonly": true
+                },
+                {
+                    "name": "template",
+                    "type": "?string",
+                    "readonly": true
+                },
+                {
+                    "name": "colorScheme",
+                    "type": "?string",
                     "readonly": true
                 }
-            },
-            "methods": {
-                "__construct": {
-                    "visibility": "public",
+            ],
+            "constants": [],
+            "constant_values": []
+        },
+        {
+            "name": "Kumwe\\Navigation\\Application\\MenuRecord",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "__construct",
                     "static": false,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "handle",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "title",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "version",
                             "type": "int",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "createdAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "updatedAt",
                             "type": "DateTimeImmutable",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
-                    "return": null
+                    "return": ""
                 },
-                "toArray": {
-                    "visibility": "public",
+                {
+                    "name": "toArray",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 }
-            },
-            "deprecated": null
-        },
-        "Kumwe\\Navigation\\Application\\NavigationNotFound": {
-            "kind": "class",
-            "stability": "stable",
-            "file": "src/Application/NavigationNotFound.php",
-            "abstract": false,
-            "final": true,
-            "readonly": false,
-            "parent": "DomainException",
-            "interfaces": [
-                "Throwable",
-                "Stringable"
             ],
-            "constants": {},
-            "properties": {},
-            "methods": {},
-            "deprecated": null
+            "properties": [
+                {
+                    "name": "id",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "handle",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "readonly": true
+                },
+                {
+                    "name": "version",
+                    "type": "int",
+                    "readonly": true
+                },
+                {
+                    "name": "createdAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                },
+                {
+                    "name": "updatedAt",
+                    "type": "DateTimeImmutable",
+                    "readonly": true
+                }
+            ],
+            "constants": [],
+            "constant_values": []
         },
-        "Kumwe\\Navigation\\Application\\NavigationRepository": {
+        {
+            "name": "Kumwe\\Navigation\\Application\\NavigationNotFound",
+            "kind": "class",
+            "methods": [],
+            "properties": [],
+            "constants": [],
+            "constant_values": []
+        },
+        {
+            "name": "Kumwe\\Navigation\\Application\\NavigationRepository",
             "kind": "interface",
-            "stability": "stable",
-            "file": "src/Application/NavigationRepository.php",
-            "abstract": true,
-            "final": false,
-            "readonly": false,
-            "parent": null,
-            "interfaces": [],
-            "constants": {},
-            "properties": {},
-            "methods": {
-                "menus": {
-                    "visibility": "public",
+            "methods": [
+                {
+                    "name": "menus",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                "menu": {
-                    "visibility": "public",
+                {
+                    "name": "menu",
                     "static": false,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "?Kumwe\\Navigation\\Application\\MenuRecord"
                 },
-                "items": {
-                    "visibility": "public",
+                {
+                    "name": "items",
                     "static": false,
                     "parameters": [
                         {
                             "name": "menuId",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "array"
                 },
-                "item": {
-                    "visibility": "public",
+                {
+                    "name": "item",
                     "static": false,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "?Kumwe\\Navigation\\Application\\MenuItemRecord"
                 },
-                "insertMenu": {
-                    "visibility": "public",
+                {
+                    "name": "insertMenu",
                     "static": false,
                     "parameters": [
                         {
                             "name": "menu",
                             "type": "Kumwe\\Navigation\\Application\\MenuRecord",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "void"
                 },
-                "updateMenu": {
-                    "visibility": "public",
+                {
+                    "name": "updateMenu",
                     "static": false,
                     "parameters": [
                         {
                             "name": "menu",
                             "type": "Kumwe\\Navigation\\Application\\MenuRecord",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "expectedVersion",
                             "type": "int",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "void"
                 },
-                "itemIdsForMenuDeletion": {
-                    "visibility": "public",
+                {
+                    "name": "itemIdsForMenuDeletion",
                     "static": false,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "expectedVersion",
                             "type": "int",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "array"
                 },
-                "deleteMenu": {
-                    "visibility": "public",
+                {
+                    "name": "deleteMenu",
                     "static": false,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "expectedVersion",
                             "type": "int",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "void"
                 },
-                "insertItem": {
-                    "visibility": "public",
+                {
+                    "name": "insertItem",
                     "static": false,
                     "parameters": [
                         {
                             "name": "item",
                             "type": "Kumwe\\Navigation\\Application\\MenuItemRecord",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "void"
                 },
-                "updateItem": {
-                    "visibility": "public",
+                {
+                    "name": "updateItem",
                     "static": false,
                     "parameters": [
                         {
                             "name": "item",
                             "type": "Kumwe\\Navigation\\Application\\MenuItemRecord",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "expectedVersion",
                             "type": "int",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "void"
                 },
-                "deleteItem": {
-                    "visibility": "public",
+                {
+                    "name": "deleteItem",
                     "static": false,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "expectedVersion",
                             "type": "int",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "void"
                 },
-                "pathForParent": {
-                    "visibility": "public",
+                {
+                    "name": "pathForParent",
                     "static": false,
                     "parameters": [
                         {
                             "name": "menuId",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "parentId",
                             "type": "?string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "slug",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "string"
                 },
-                "assertMoveIsAcyclic": {
-                    "visibility": "public",
+                {
+                    "name": "assertMoveIsAcyclic",
                     "static": false,
                     "parameters": [
                         {
                             "name": "itemId",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "menuId",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "parentId",
                             "type": "?string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "void"
                 },
-                "moveDescendantPaths": {
-                    "visibility": "public",
+                {
+                    "name": "moveDescendantPaths",
                     "static": false,
                     "parameters": [
                         {
                             "name": "itemId",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "oldPath",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "newPath",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "at",
                             "type": "DateTimeImmutable",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "void"
                 }
-            },
-            "deprecated": null
-        },
-        "Kumwe\\Navigation\\Application\\NavigationVersionConflict": {
-            "kind": "class",
-            "stability": "stable",
-            "file": "src/Application/NavigationVersionConflict.php",
-            "abstract": false,
-            "final": true,
-            "readonly": false,
-            "parent": "DomainException",
-            "interfaces": [
-                "Throwable",
-                "Stringable"
             ],
-            "constants": {},
-            "properties": {},
-            "methods": {},
-            "deprecated": null
+            "properties": [],
+            "constants": [],
+            "constant_values": []
         },
-        "Kumwe\\Navigation\\Domain\\InvalidMenuTree": {
+        {
+            "name": "Kumwe\\Navigation\\Application\\NavigationVersionConflict",
             "kind": "class",
-            "stability": "stable",
-            "file": "src/Domain/InvalidMenuTree.php",
-            "abstract": false,
-            "final": true,
-            "readonly": false,
-            "parent": "DomainException",
-            "interfaces": [
-                "Throwable",
-                "Stringable"
-            ],
-            "constants": {},
-            "properties": {},
-            "methods": {},
-            "deprecated": null
+            "methods": [],
+            "properties": [],
+            "constants": [],
+            "constant_values": []
         },
-        "Kumwe\\Navigation\\Domain\\MenuItem": {
+        {
+            "name": "Kumwe\\Navigation\\Domain\\InvalidMenuTree",
             "kind": "class",
-            "stability": "stable",
-            "file": "src/Domain/MenuItem.php",
-            "abstract": false,
-            "final": true,
-            "readonly": true,
-            "parent": null,
-            "interfaces": [],
-            "constants": {},
-            "properties": {},
-            "methods": {
-                "create": {
-                    "visibility": "public",
+            "methods": [],
+            "properties": [],
+            "constants": [],
+            "constant_values": []
+        },
+        {
+            "name": "Kumwe\\Navigation\\Domain\\MenuItem",
+            "kind": "class",
+            "methods": [
+                {
+                    "name": "create",
                     "static": true,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "title",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "slug",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "parentId",
                             "type": "?string",
                             "optional": true,
+                            "default": "NULL",
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "Kumwe\\Navigation\\Domain\\MenuItem"
                 },
-                "id": {
-                    "visibility": "public",
+                {
+                    "name": "id",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 },
-                "title": {
-                    "visibility": "public",
+                {
+                    "name": "title",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 },
-                "slug": {
-                    "visibility": "public",
+                {
+                    "name": "slug",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 },
-                "parentId": {
-                    "visibility": "public",
+                {
+                    "name": "parentId",
                     "static": false,
                     "parameters": [],
                     "return": "?string"
                 },
-                "path": {
-                    "visibility": "public",
+                {
+                    "name": "path",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 },
-                "placedAt": {
-                    "visibility": "public",
+                {
+                    "name": "placedAt",
                     "static": false,
                     "parameters": [
                         {
                             "name": "parentId",
                             "type": "?string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "path",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "Kumwe\\Navigation\\Domain\\MenuItem"
                 }
-            },
-            "deprecated": null
+            ],
+            "properties": [],
+            "constants": [],
+            "constant_values": []
         },
-        "Kumwe\\Navigation\\Domain\\MenuTree": {
+        {
+            "name": "Kumwe\\Navigation\\Domain\\MenuTree",
             "kind": "class",
-            "stability": "stable",
-            "file": "src/Domain/MenuTree.php",
-            "abstract": false,
-            "final": true,
-            "readonly": true,
-            "parent": null,
-            "interfaces": [],
-            "constants": {},
-            "properties": {},
-            "methods": {
-                "create": {
-                    "visibility": "public",
+            "methods": [
+                {
+                    "name": "create",
                     "static": true,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "items",
                             "type": "Kumwe\\Navigation\\Domain\\MenuItem",
                             "optional": true,
+                            "default": null,
                             "variadic": true,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "Kumwe\\Navigation\\Domain\\MenuTree"
                 },
-                "id": {
-                    "visibility": "public",
+                {
+                    "name": "id",
                     "static": false,
                     "parameters": [],
                     "return": "string"
                 },
-                "item": {
-                    "visibility": "public",
+                {
+                    "name": "item",
                     "static": false,
                     "parameters": [
                         {
                             "name": "id",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "Kumwe\\Navigation\\Domain\\MenuItem"
                 },
-                "items": {
-                    "visibility": "public",
+                {
+                    "name": "items",
                     "static": false,
                     "parameters": [],
                     "return": "array"
                 },
-                "move": {
-                    "visibility": "public",
+                {
+                    "name": "move",
                     "static": false,
                     "parameters": [
                         {
                             "name": "itemId",
                             "type": "string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         },
                         {
                             "name": "newParentId",
                             "type": "?string",
                             "optional": false,
+                            "default": null,
                             "variadic": false,
-                            "by_reference": false
+                            "reference": false
                         }
                     ],
                     "return": "Kumwe\\Navigation\\Domain\\MenuTree"
                 }
-            },
-            "deprecated": null
+            ],
+            "properties": [],
+            "constants": [],
+            "constant_values": []
         }
-    },
-    "extension_points": [
-        "Kumwe\\Navigation\\Application\\NavigationRepository"
-    ],
-    "digest_of": "src/"
+    ]
 }

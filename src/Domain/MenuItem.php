@@ -50,7 +50,7 @@ final readonly class MenuItem
 
         $titleLength = mb_strlen(trim($title));
 
-        if ($titleLength < 1 || $titleLength > 255) {
+        if (!mb_check_encoding($title, 'UTF-8') || $titleLength < 1 || $titleLength > 255) {
             throw new InvalidArgumentException('A menu item title must contain between 1 and 255 characters.');
         }
 
@@ -63,7 +63,10 @@ final readonly class MenuItem
             );
         }
 
-        if ($path !== '' && preg_match('#^/[a-z0-9]+(?:-[a-z0-9]+)*(?:/[a-z0-9]+(?:-[a-z0-9]+)*)*$#D', $path) !== 1) {
+        if (
+            strlen($path) > 10_304 || substr_count($path, '/') > 64
+            || ($path !== '' && preg_match('#^/[a-z0-9]+(?:-[a-z0-9]+)*(?:/[a-z0-9]+(?:-[a-z0-9]+)*)*$#D', $path) !== 1)
+        ) {
             throw new InvalidArgumentException('A menu item path must be an absolute path composed of valid slugs.');
         }
     }
@@ -171,7 +174,7 @@ final readonly class MenuItem
      */
     public function placedAt(?string $parentId, string $path): self
     {
-        return new self($this->id, $this->title, $this->slug, $parentId, $path);
+        return new self($this->id, $this->title, $this->slug, $parentId === null ? null : strtolower($parentId), $path);
     }
 
     /**

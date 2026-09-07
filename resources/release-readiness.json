@@ -1,7 +1,8 @@
 {
-  "schema": "kumwe-release-readiness/v1",
-  "status": "release-recorded",
-  "version": "0.1.0",
-  "reason": "Human merge triggers the complete package gate and automatic publication. Independent verification and App adoption follow publication.",
-  "publishing_permitted": true
+    "schema": "kumwe-release-readiness/v1",
+    "status": "release-recorded",
+    "version": "0.1.1",
+    "published_baseline": "0.1.0",
+    "publishing_permitted": true,
+    "reason": "Successor source release record for review. Dependencies retain a coherent exact stable graph. Human merge and passing release gates are required before publication; no release verification or App readiness attestation is claimed."
 }
