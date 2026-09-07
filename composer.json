@@ -1,0 +1,74 @@
+{
+  "name": "kumwe/navigation",
+  "description": "Bounded deterministic navigation trees, records and persistence contracts.",
+  "type": "library",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/kumwe/navigation",
+  "require": {
+    "php": "^8.5",
+    "ext-mbstring": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^12.0",
+    "phpstan/phpstan": "^2.1",
+    "squizlabs/php_codesniffer": "^4.0",
+    "ext-zip": "*",
+    "phpstan/phpstan-strict-rules": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kumwe\\Navigation\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Kumwe\\Navigation\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit --no-progress",
+    "lint": "php tools/lint.php",
+    "analyse": "phpstan analyse --no-progress --memory-limit=1G",
+    "cs": "phpcs -q",
+    "cs:fix": "phpcbf",
+    "api": "php tools/public-api.php",
+    "api:record": "php tools/public-api.php --write",
+    "architecture": "php tools/architecture.php",
+    "examples": "php examples/standalone.php",
+    "security": "composer audit --abandoned=fail",
+    "clean-consumer": "php tools/clean-consumer.php",
+    "check": [
+      "@composer:validate",
+      "@lint",
+      "@api",
+      "@architecture",
+      "@analyse",
+      "@cs",
+      "@test",
+      "@examples",
+      "@security",
+      "@clean-consumer"
+    ],
+    "composer:validate": "composer validate --strict"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "archive": {
+    "exclude": [
+      "/.git",
+      "/.github",
+      "/tests",
+      "/vendor",
+      "/composer.lock",
+      "/phpunit.xml",
+      "/phpstan.neon",
+      "/phpcs.xml",
+      "/tools",
+      "/.phpunit.cache",
+      "/.phpstan-cache"
+    ]
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

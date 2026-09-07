@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<ruleset name="Kumwe"><file>src</file><arg name="extensions" value="php"/><rule ref="PSR12"/></ruleset>
