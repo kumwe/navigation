@@ -1,21 +1,39 @@
 {
-  "schema": "kumwe-package-capabilities/v1",
-  "package": "kumwe/navigation",
-  "namespace": "Kumwe\\Navigation\\",
-  "responsibility": "Bounded deterministic navigation trees, records and persistence contracts.",
-  "non_responsibilities": [
-    "host authorization",
-    "persistence adapters",
-    "active registries",
-    "HTTP routing",
-    "template rendering",
-    "transactions"
-  ],
-  "capabilities": [
-    {
-      "id": "navigation",
-      "description": "Bounded deterministic navigation trees, records and persistence contracts."
-    }
-  ],
-  "completion_claim": false
+    "schema": "kumwe-package-capabilities/v1",
+    "package": "kumwe/navigation",
+    "namespace": "Kumwe\\Navigation\\",
+    "responsibility": "Bounded deterministic navigation trees, records and persistence contracts.",
+    "non_responsibilities": [
+        "host authorization",
+        "persistence adapters",
+        "active registries",
+        "HTTP routing",
+        "template rendering",
+        "transactions"
+    ],
+    "capabilities": [
+        {
+            "id": "navigation.portable-contract",
+            "description": "Bounded deterministic navigation trees, records and persistence contracts.",
+            "title": "Navigation",
+            "symbols": [
+                "Kumwe\\Navigation\\Application\\MenuItemRecord",
+                "Kumwe\\Navigation\\Application\\MenuRecord",
+                "Kumwe\\Navigation\\Application\\NavigationNotFound",
+                "Kumwe\\Navigation\\Application\\NavigationRepository",
+                "Kumwe\\Navigation\\Application\\NavigationVersionConflict",
+                "Kumwe\\Navigation\\Domain\\InvalidMenuTree",
+                "Kumwe\\Navigation\\Domain\\MenuItem",
+                "Kumwe\\Navigation\\Domain\\MenuTree"
+            ],
+            "documentation": [
+                "docs/public-api.md",
+                "docs/architecture.md",
+                "docs/readiness-review.md"
+            ]
+        }
+    ],
+    "release": "0.1.1",
+    "native_requirements": null,
+    "deprecations": []
 }

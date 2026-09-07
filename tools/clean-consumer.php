@@ -16,7 +16,7 @@ try {
     $archive = $workspace . '/candidate.zip';
     $zip = new ZipArchive();
     if ($zip->open($archive) !== true) { throw new RuntimeException('Archive unreadable.'); }
-    foreach (['composer.json', 'resources/public-api/v1.json', 'examples/standalone.php'] as $required) {
+    foreach (['composer.json', 'resources/public-api/v1.json', 'resources/public-api/signature-details-v1.json', 'resources/capabilities/v1.json', 'resources/service-map/v1.json', 'docs/public-api.md', 'examples/standalone.php'] as $required) {
         if ($zip->getFromName($required) === false) { throw new RuntimeException('Missing archive entry: ' . $required); }
     }
     for ($i = 0; $i < $zip->numFiles; $i++) {
@@ -28,6 +28,11 @@ try {
     }
     if (json_decode($zip->getFromName('composer.json'), true, 512, JSON_THROW_ON_ERROR) !== $metadata) {
         throw new RuntimeException('Archived metadata differs from the candidate.');
+    }
+    foreach (['resources/public-api/v1.json', 'resources/public-api/signature-details-v1.json', 'resources/capabilities/v1.json', 'resources/service-map/v1.json', 'docs/public-api.md'] as $manifest) {
+        if ($zip->getFromName($manifest) !== file_get_contents($root . '/' . $manifest)) {
+            throw new RuntimeException('Archive contract differs from reviewed source: ' . $manifest);
+        }
     }
     $zip->close();
     $package = $metadata;
@@ -53,14 +58,53 @@ if (!$loader->isClassMapAuthoritative() || class_exists('PHPUnit\Framework\TestC
 }
 $package = __DIR__ . '/vendor/' . $argv[1];
 $api = json_decode(file_get_contents($package . '/resources/public-api/v1.json'), true, 512, JSON_THROW_ON_ERROR);
-foreach ($api['symbols'] as $symbol) {
+$details = json_decode(file_get_contents($package . '/resources/public-api/signature-details-v1.json'), true, 512, JSON_THROW_ON_ERROR);
+if (array_keys($api['symbols']) !== array_column($details['symbols'], 'name')) {
+    throw new RuntimeException('Governed API and signature details disagree on ownership.');
+}
+foreach ($details['symbols'] as $symbol) {
     $name = $symbol['name'];
     if (!class_exists($name) && !interface_exists($name) && !enum_exists($name)) {
         throw new RuntimeException('Public export cannot autoload: ' . $name);
     }
+    $reflection = new ReflectionClass($name);
+    foreach ($symbol['methods'] as $method) {
+        $reflected = $reflection->getMethod($method['name']);
+        if ($reflected->isStatic() !== $method['static'] || (string) $reflected->getReturnType() !== $method['return']) {
+            throw new RuntimeException('Installed method contract differs: ' . $name . '::' . $method['name']);
+        }
+        $parameters = [];
+        foreach ($reflected->getParameters() as $parameter) {
+            $parameters[] = [
+                'name' => $parameter->getName(), 'type' => (string) $parameter->getType(),
+                'optional' => $parameter->isOptional(),
+                'default' => $parameter->isDefaultValueAvailable() ? var_export($parameter->getDefaultValue(), true) : null,
+                'variadic' => $parameter->isVariadic(), 'reference' => $parameter->isPassedByReference(),
+            ];
+        }
+        if ($parameters !== $method['parameters']) {
+            throw new RuntimeException('Installed parameter contract differs: ' . $name . '::' . $method['name']);
+        }
+    }
+    foreach ($symbol['properties'] as $property) {
+        $reflected = $reflection->getProperty($property['name']);
+        if ((string) $reflected->getType() !== $property['type'] || $reflected->isReadOnly() !== $property['readonly']) {
+            throw new RuntimeException('Installed property contract differs: ' . $name . '::$' . $property['name']);
+        }
+    }
+    foreach ($symbol['constant_values'] as $constant => $value) {
+        if (var_export($reflection->getConstant($constant), true) !== $value) {
+            throw new RuntimeException('Installed constant contract differs: ' . $name . '::' . $constant);
+        }
+    }
     if (!str_starts_with(realpath((new ReflectionClass($name))->getFileName()), realpath($package) . '/')) {
         throw new RuntimeException('Export resolved outside installed archive: ' . $name);
     }
+}
+$capabilities = json_decode(file_get_contents($package . '/resources/capabilities/v1.json'), true, 512, JSON_THROW_ON_ERROR);
+$services = json_decode(file_get_contents($package . '/resources/service-map/v1.json'), true, 512, JSON_THROW_ON_ERROR);
+if ($capabilities['package'] !== $argv[1] || $services['config_provider'] !== null) {
+    throw new RuntimeException('Installed capability or no-provider contract differs.');
 }
 require $package . '/examples/standalone.php';
 echo count($api['symbols']) . " exports passed archive consumer.\n";

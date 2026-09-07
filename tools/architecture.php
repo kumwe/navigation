@@ -24,7 +24,7 @@ foreach ($files as $file) {
     }
 }
 $services = json_decode(file_get_contents($root . '/resources/service-map/v1.json'), true, 512, JSON_THROW_ON_ERROR);
-if ($services['provider'] !== null || glob($root . '/src/*ConfigProvider.php') !== []) {
+if ($services['config_provider'] !== null || glob($root . '/src/*ConfigProvider.php') !== []) {
     throw new RuntimeException('This value and port package must not acquire ambient container services.');
 }
 echo "Architecture boundary passed.\n";

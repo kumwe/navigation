@@ -9,3 +9,7 @@ Run `composer install`, `composer check`, and `composer examples`. [Public API](
 The package has no ConfigProvider. Values are constructed directly; ports are supplied by the host. Deterministic pure operations do not capture a site, actor, request, connection or container. App owns authorization, transactions, persistence, dispatch and presentation.
 
 Released consumers exact-pin pre-1.0 versions. Apache-2.0; inherited source behavior is preserved except the explicitly documented bounded-input decisions.
+
+## Current extraction review
+
+See [readiness review](docs/readiness-review.md) for the `0.1.1` candidate, current portable boundaries, package-owned regression coverage and the remaining publication/verification steps. [Dependency status](docs/dependency-decision.md) records the coherent exact release graph.
