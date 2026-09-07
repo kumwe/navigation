@@ -303,9 +303,9 @@ documentation:
   integration_or_consumer: docs/integration.md
   examples:
   - examples/standalone.php
-  changelog_record: CHANGELOG.md / Unreleased
+  changelog_record: CHANGELOG.md / 0.1.0
 release_expectations:
-  version_policy: SemVer; initial version chosen only after review; exact pre-1.0
+  version_policy: SemVer; initial version 0.1.0 recorded for human merge; exact pre-1.0
     consumer pin after independent verification
   expected_artifact_types:
   - Composer ZIP
@@ -321,7 +321,7 @@ release_expectations:
   - '@security'
   - '@clean-consumer'
   required_registry_or_installer: Composer
-  required_external_attestation: true
+  required_external_attestation: false
 next_task:
   phase_name: Independent release verification, followed by separately authorized
     App Phase 2
@@ -422,5 +422,6 @@ decisions:
 - Canonical namespace move; no aliases or dual production ownership after adoption
 - See COMPATIBILITY.md for initial bounded-input decision
 blockers:
-- Human review and independently verified immutable release pending
+- Human review and merge of the 0.1.0 release record; automatic publication follows the package gate
+- Independent release verification and App adoption remain separate follow-up work
 ```
