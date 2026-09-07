@@ -1,0 +1,58 @@
+[
+  {
+    "repository": "https://github.com/kumwe/app",
+    "old_fqcn": "Kumwe\\App\\Navigation\\Domain\\InvalidMenuTree",
+    "new_fqcn": "Kumwe\\Navigation\\Domain\\InvalidMenuTree",
+    "source_path": "src/Navigation/Domain/InvalidMenuTree.php",
+    "target_path": "src/Domain/InvalidMenuTree.php"
+  },
+  {
+    "repository": "https://github.com/kumwe/app",
+    "old_fqcn": "Kumwe\\App\\Navigation\\Domain\\MenuItem",
+    "new_fqcn": "Kumwe\\Navigation\\Domain\\MenuItem",
+    "source_path": "src/Navigation/Domain/MenuItem.php",
+    "target_path": "src/Domain/MenuItem.php"
+  },
+  {
+    "repository": "https://github.com/kumwe/app",
+    "old_fqcn": "Kumwe\\App\\Navigation\\Domain\\MenuTree",
+    "new_fqcn": "Kumwe\\Navigation\\Domain\\MenuTree",
+    "source_path": "src/Navigation/Domain/MenuTree.php",
+    "target_path": "src/Domain/MenuTree.php"
+  },
+  {
+    "repository": "https://github.com/kumwe/app",
+    "old_fqcn": "Kumwe\\App\\Navigation\\Application\\MenuItemRecord",
+    "new_fqcn": "Kumwe\\Navigation\\Application\\MenuItemRecord",
+    "source_path": "src/Navigation/Application/MenuItemRecord.php",
+    "target_path": "src/Application/MenuItemRecord.php"
+  },
+  {
+    "repository": "https://github.com/kumwe/app",
+    "old_fqcn": "Kumwe\\App\\Navigation\\Application\\MenuRecord",
+    "new_fqcn": "Kumwe\\Navigation\\Application\\MenuRecord",
+    "source_path": "src/Navigation/Application/MenuRecord.php",
+    "target_path": "src/Application/MenuRecord.php"
+  },
+  {
+    "repository": "https://github.com/kumwe/app",
+    "old_fqcn": "Kumwe\\App\\Navigation\\Application\\NavigationNotFound",
+    "new_fqcn": "Kumwe\\Navigation\\Application\\NavigationNotFound",
+    "source_path": "src/Navigation/Application/NavigationNotFound.php",
+    "target_path": "src/Application/NavigationNotFound.php"
+  },
+  {
+    "repository": "https://github.com/kumwe/app",
+    "old_fqcn": "Kumwe\\App\\Navigation\\Application\\NavigationRepository",
+    "new_fqcn": "Kumwe\\Navigation\\Application\\NavigationRepository",
+    "source_path": "src/Navigation/Application/NavigationRepository.php",
+    "target_path": "src/Application/NavigationRepository.php"
+  },
+  {
+    "repository": "https://github.com/kumwe/app",
+    "old_fqcn": "Kumwe\\App\\Navigation\\Application\\NavigationVersionConflict",
+    "new_fqcn": "Kumwe\\Navigation\\Application\\NavigationVersionConflict",
+    "source_path": "src/Navigation/Application/NavigationVersionConflict.php",
+    "target_path": "src/Application/NavigationVersionConflict.php"
+  }
+]
