@@ -41,6 +41,7 @@
       "@composer:validate",
       "@lint",
       "@api",
+      "@manifests",
       "@architecture",
       "@analyse",
       "@cs",
@@ -49,7 +50,8 @@
       "@security",
       "@clean-consumer"
     ],
-    "composer:validate": "composer validate --strict"
+    "composer:validate": "composer validate --strict",
+    "manifests": "php tools/verify-governed-manifests.php"
   },
   "config": {
     "sort-packages": true
