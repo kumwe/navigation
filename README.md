@@ -2,7 +2,7 @@
 
 Bounded deterministic navigation trees, records and persistence contracts.
 
-Requires PHP 8.5 and the runtime dependencies in `composer.json`. The canonical namespace is `Kumwe\Navigation\`. The initial 0.1.0 release is recorded for publication after human merge and the complete package gate. Verify the published release before separate App adoption.
+Requires PHP 8.5 and the runtime dependencies in `composer.json`. The canonical namespace is `Kumwe\Navigation\`. Published baseline: 0.1.0. This branch records the 0.1.1 successor for publication after merge and the complete package gate. Independently verify that published artifact before App adoption.
 
 Run `composer install`, `composer check`, and `composer examples`. [Public API](docs/public-api.md), [architecture](docs/architecture.md), [integration](docs/integration.md), and [release protocol](docs/releasing.md) describe the contract.
 
