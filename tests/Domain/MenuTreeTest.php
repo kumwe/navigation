@@ -89,6 +89,30 @@ final class MenuTreeTest extends TestCase
         );
     }
 
+    public function testTreeWidthAndDepthLimitsApplyRegardlessOfInputOrder(): void
+    {
+        $items = [];
+        $parent = null;
+        for ($i = 0; $i < 64; $i++) {
+            $id = sprintf('018f22e2-7c8b-7ab0-8f3a-%012d', $i);
+            $items[] = MenuItem::create($id, 'Entry', 'entry-' . $i, $parent);
+            $parent = $id;
+        }
+        self::assertCount(64, MenuTree::create(self::MENU_ID, ...$items)->items());
+        self::assertCount(64, MenuTree::create(self::MENU_ID, ...array_reverse($items))->items());
+        $items[] = MenuItem::create(self::HOME_ID, 'Too deep', 'too-deep', $parent);
+        foreach ([$items, array_reverse($items)] as $ordered) {
+            try {
+                MenuTree::create(self::MENU_ID, ...$ordered);
+                self::fail('A 65-item path was accepted.');
+            } catch (InvalidMenuTree) {
+                self::assertTrue(true);
+            }
+        }
+        $this->expectException(InvalidMenuTree::class);
+        MenuTree::create(self::MENU_ID, ...array_fill(0, 1025, $items[0]));
+    }
+
     private function tree(): MenuTree
     {
         return MenuTree::create(

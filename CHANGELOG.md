@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## [Unreleased]
 
-- Extract portable navigation behavior and its canonical API from the frozen source baseline.
+- Extract the canonical runtime types recorded in docs/source-map.json and their behavior tests.
+- Add standalone Composer, strict analysis, API, archive and clean consumer gates.
+- Preserve the merged source extraction and all package-owned behavior tests.
 - NRM-2026-035: enabling-refactor; completion_claim: false.
-
-No release record is authorized until all dependency attestations and package checks pass.
+- Publication requires package checks and stable dependency version/source identity; independent attestations and App adoption remain separate.

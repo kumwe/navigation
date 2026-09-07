@@ -47,7 +47,8 @@ final readonly class MenuTree
      *
      * @return  self  A tree in which every item carries the path its ancestry implies.
      *
-     * @throws  InvalidMenuTree  When an item is supplied twice, a referenced parent is absent, two
+     * @throws  InvalidMenuTree  When the tree exceeds 1024 items or a path exceeds 64 items,
+     *          when an item is supplied twice, a referenced parent is absent, two
      *          siblings share a slug, or the parent chain contains a cycle.
      * @throws  InvalidArgumentException  When the menu id is not a canonical UUID.
      *
@@ -55,6 +56,9 @@ final readonly class MenuTree
      */
     public static function create(string $id, MenuItem ...$items): self
     {
+        if (count($items) > 1024) {
+            throw new InvalidMenuTree('A menu contains at most 1024 items.');
+        }
         $indexed = [];
 
         foreach ($items as $item) {
@@ -309,12 +313,18 @@ final readonly class MenuTree
             throw new InvalidMenuTree('The menu contains a parent cycle.');
         }
 
+        if (count($visiting) >= 64) {
+            throw new InvalidMenuTree('A menu path contains at most 64 items.');
+        }
         $visiting[$id] = true;
         $item = $items[$id];
         $parentPath = $item->parentId() === null
             ? ''
             : self::buildPath($item->parentId(), $items, $paths, $visiting);
 
+        if (substr_count($parentPath, '/') >= 64) {
+            throw new InvalidMenuTree('A menu path contains at most 64 items.');
+        }
         unset($visiting[$id]);
 
         return $paths[$id] = $parentPath . '/' . $item->slug();

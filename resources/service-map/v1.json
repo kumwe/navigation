@@ -1,0 +1,11 @@
+{
+  "schema": "kumwe-service-map/v1",
+  "package": "kumwe/navigation",
+  "mode": "direct",
+  "provider": null,
+  "factories": [],
+  "aliases": [],
+  "configuration": [],
+  "lifetimes": [],
+  "reason": "Immutable values, contracts and directly constructible deterministic algorithms have no injected runtime collaborators."
+}
