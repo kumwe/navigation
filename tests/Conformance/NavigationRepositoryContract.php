@@ -67,8 +67,8 @@ abstract class NavigationRepositoryContract extends TestCase
             $repository->insertMenu($this->menuRecord($id));
         }
         foreach (
-            [$this->itemRecord(12, path: '/z'), $this->itemRecord(11, parent: 10, path: '/news/child'),
-            $this->itemRecord(10), $this->itemRecord(20, menu: 2)] as $item
+            [$this->itemRecord(12, path: '/z'), $this->itemRecord(10),
+            $this->itemRecord(11, parent: 10, path: '/news/child'), $this->itemRecord(20, menu: 2)] as $item
         ) {
             $repository->insertItem($item);
         }
