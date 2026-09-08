@@ -1,19 +1,9 @@
-# Extraction readiness review — 2026-09-07
+# Extraction readiness review — 2026-09-08
 
-Candidate version: `0.1.1`. Published baseline: `0.1.0`.
+Proposed successor: `0.1.2`. Published baseline: [v0.1.1](https://github.com/kumwe/navigation/releases/tag/v0.1.1) at `9ab8019cc7fbc32b2cd81da74d021bc294ece058`. Review: [PR #5](https://github.com/kumwe/navigation/pull/5).
 
-Normalize parent UUIDs on public placement and enforce UTF-8 titles plus bounded derived paths.
+The reusable NavigationRepository suite covers every public method: absent/scoped reads, stored record round trips, stable path ordering, missing/stale version conflicts, cycle/cross-menu refusal, descendant path/version updates and exact cascade ownership cleanup. Existing bounded tree and hostile-input tests remain. Production source and public signatures are unchanged.
 
-The existing source map remains the extraction provenance record. Content and Navigation use App baseline `24ecf956423c18933e824b43cea1bfb9127a79a9`; the surface declarations and business contracts preserve the SDK provenance in docs/source-map.json. This review adds portable boundary behavior and package-owned tests without changing App production code or test ownership.
+The complete source/test inventory is enforced by `composer ownership`. Abstract suites and adapters stay in test-only autoload and remain outside production archives. [Test ownership](test-ownership.md) explains adapter reuse and the guarantees still requiring real host/database tests.
 
-## Runtime boundary
-
-The neutral tree owns stable ordering, parent resolution, cycle/depth/width refusal and path reconstruction. Public placedAt normalizes parent IDs as create already does. Paths are bounded to 64 segments and 10304 bytes, the maximum 64 valid 160-byte slugs plus separators. Host target resolution, URL policy, active registries, rendering and persistence remain outside this package.
-
-## Verification and remaining release steps
-
-Package-owned regression tests cover the changed invariants. The public API gate now compares generated Markdown as well as JSON, including full method signatures, defaults, public properties and constant values; source file order is sorted before generation. No ConfigProvider is introduced because these values, pure algorithms and ports have no injected runtime coordinator.
-
-Local source validation uses PHP 8.5.10 and exact dependency-tag archives where registry access is unavailable. This is distinct from the supported Composer security and built-archive consumer gates in CI. Merge only after the complete package workflow passes. The candidate is not a published or independently release-verified artifact. Publication, independent artifact verification and a coordinated exact-pin consumer train remain required before App integration. App acceptance, authorization, lifecycle, persistence and browser tests remain App-owned and were not run or claimed by this package review.
-
-The complete Package CI passed at source commit f1a95abd91c6479a93f6384dd7b759b5bc5936e5 ([run 34162173074](https://github.com/kumwe/navigation/actions/runs/34162173074)), including real Composer installation, security audit, package tests, release automation and the clean built-archive consumer. The same-branch handoff/schema-gate follow-up must also pass required checks before merge.
+Local PHP 8.5.10: 23 tests / 100 assertions and ownership gate pass. The final PR must pass the full existing Composer/static/API/security/archive consumer and release automation gates. This proposed successor is not yet published or independently release-verified. A human merge, automated immutable publication and independent artifact/dependency attestation remain the release steps before later core adoption. No App integration or App acceptance result is claimed.

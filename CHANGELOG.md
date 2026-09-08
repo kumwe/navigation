@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2]
+
+- Add reusable repository conformance for scope, ordering, version conflicts, path moves and cascading deletion.
+- Enforce complete source/test ownership inventory in the package gate.
+- Reconcile the migration handoff and readiness evidence against published baselines.
+
+
 ## [0.1.1] - 2026-09-07
 
 - Normalize parent UUIDs on public placement and enforce UTF-8 titles plus bounded derived paths.
