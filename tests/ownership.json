@@ -1,0 +1,65 @@
+{
+  "schema": "kumwe-test-ownership/v1",
+  "package": "kumwe/navigation",
+  "source": {
+    "src/Application/MenuItemRecord.php": [
+      "tests/NavigationRepositoryConformanceTest.php"
+    ],
+    "src/Application/MenuRecord.php": [
+      "tests/NavigationRepositoryConformanceTest.php"
+    ],
+    "src/Application/NavigationNotFound.php": [
+      "tests/NavigationRepositoryConformanceTest.php"
+    ],
+    "src/Application/NavigationRepository.php": [
+      "tests/NavigationRepositoryConformanceTest.php"
+    ],
+    "src/Application/NavigationVersionConflict.php": [
+      "tests/NavigationRepositoryConformanceTest.php"
+    ],
+    "src/Domain/InvalidMenuTree.php": [
+      "tests/Domain/MenuTreeTest.php"
+    ],
+    "src/Domain/MenuItem.php": [
+      "tests/Domain/MenuItemTest.php",
+      "tests/Domain/MenuTreeTest.php",
+      "tests/Domain/PlacementBoundaryTest.php"
+    ],
+    "src/Domain/MenuTree.php": [
+      "tests/Domain/MenuTreeTest.php",
+      "tests/Domain/PlacementBoundaryTest.php"
+    ]
+  },
+  "tests": {
+    "tests/Conformance/NavigationRepositoryContract.php": {
+      "role": "contract",
+      "responsibility": "Reusable sequential public-port conformance assertions."
+    },
+    "tests/Domain/MenuItemTest.php": {
+      "role": "test",
+      "responsibility": "Portable model behavior, invariants, boundary refusals and inherited error vocabulary."
+    },
+    "tests/Domain/MenuTreeTest.php": {
+      "role": "test",
+      "responsibility": "Portable model behavior, invariants, boundary refusals and inherited error vocabulary."
+    },
+    "tests/Domain/PlacementBoundaryTest.php": {
+      "role": "test",
+      "responsibility": "Portable model behavior, invariants, boundary refusals and inherited error vocabulary."
+    },
+    "tests/Fixture/MemoryNavigationRepository.php": {
+      "role": "fixture",
+      "responsibility": "Deterministic in-memory test adapter; no durable or host guarantee."
+    },
+    "tests/NavigationRepositoryConformanceTest.php": {
+      "role": "test",
+      "responsibility": "Execute the reusable port contract against test-only adapters."
+    }
+  },
+  "host_retained": [
+    "database locking and concurrent writers",
+    "authorization and trust",
+    "transactions, rollback and recovery",
+    "App composition and adapter parity"
+  ]
+}

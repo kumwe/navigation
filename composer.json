@@ -45,13 +45,15 @@
       "@architecture",
       "@analyse",
       "@cs",
+      "@ownership",
       "@test",
       "@examples",
       "@security",
       "@clean-consumer"
     ],
     "composer:validate": "composer validate --strict",
-    "manifests": "php tools/verify-governed-manifests.php"
+    "manifests": "php tools/verify-governed-manifests.php",
+    "ownership": "php tools/verify-test-ownership.php"
   },
   "config": {
     "sort-packages": true
