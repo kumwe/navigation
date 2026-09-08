@@ -70,8 +70,8 @@ target:
   repository: "https://github.com/kumwe/navigation"
   artifact_identity: "kumwe/navigation"
   canonical_namespace_or_abi: "Kumwe\\Navigation\\"
-  branch: "codex/extraction-readiness-20260907"
-  pull_request: "https://github.com/kumwe/navigation/pull/4"
+  branch: "agent/complete-repository-conformance"
+  pull_request: "https://github.com/kumwe/navigation/pull/5"
 ownership:
   responsibility: "Bounded deterministic navigation trees, records and persistence contracts."
   non_responsibilities:
@@ -89,16 +89,16 @@ ownership:
   public_manifests:
     -
       path: "resources/public-api/v1.json"
-      sha256: "250e4920d1dcf03aeacfd5157abdc4c324ef73c993913a40de85d3344183b5da"
+      sha256: "fc1caa1c9b859e091d0cda6de0b5283458110ffaa6c4a8ea8e90060287dc7484"
     -
       path: "resources/capabilities/v1.json"
-      sha256: "f8779a14e57c3d5e45ac7b4845c030ca3c8046dfbef2b7f57c7c782855375cc2"
+      sha256: "84fb94a6c8d5f988b5a492c3aa2dbba6f6f4ba18c482480acbd07f86eeae922b"
     -
       path: "resources/service-map/v1.json"
-      sha256: "27565201aba4e06f182c0be2f572e0ae036b54c9a51f606416147989013d1ce8"
+      sha256: "4a93bf6835f4b896af14756c6f542f50d68c7e26ce5cc28b637a65f275ff8020"
     -
       path: "resources/public-api/signature-details-v1.json"
-      sha256: "e3d90edcee96b2b1da1b111e63413ba1dc95b7f2a981f7ee4ca721b845eb9c29"
+      sha256: "c21a9252fb7f5bf07f3900d95a74834227a57f9a080660ede1818dc5f0a350d7"
   intentionally_excluded:
     - "NavigationService.php"
     - "PublicNavigation.php"
@@ -289,6 +289,10 @@ native_cpp: null
 php_extension: null
 tests:
   moved_or_added:
+    - "tests/NavigationRepositoryConformanceTest.php"
+    - "tests/Conformance/"
+    - "tests/Fixture/"
+    - "tests/ownership.json"
     - "tests/Domain/MenuItemTest.php"
     - "tests/Domain/MenuTreeTest.php"
     - "tests/Domain/PlacementBoundaryTest.php"
@@ -342,7 +346,7 @@ next_task:
     - "All dependencies and this release independently attested"
     - "Current App drift reconciled upstream"
   consumer_repository: "https://github.com/kumwe/app"
-  dependency_or_native_change: "After publication and independent verification, adopt exact kumwe/navigation 0.1.1 with its verified stable dependency graph; no floating latest or dev aliases."
+  dependency_or_native_change: "After publication and independent verification, adopt exact kumwe/navigation 0.1.2 with its verified stable dependency graph; no floating latest or dev aliases."
   namespace_or_api_replacements:
     - "Kumwe\\App\\Navigation\\Domain\\InvalidMenuTree -> Kumwe\\Navigation\\Domain\\InvalidMenuTree"
     - "Kumwe\\App\\Navigation\\Domain\\MenuItem -> Kumwe\\Navigation\\Domain\\MenuItem"
@@ -451,6 +455,8 @@ The framework consumer inventory covers App production references, configuration
 
 ## Test ownership
 
+The sequential port contract is now executable through `tests/NavigationRepositoryConformanceTest.php`, the reusable `tests/Conformance/` suite and explicitly test-only `tests/Fixture/` adapters. `tests/ownership.json` and `composer ownership` enforce the complete source/test inventory. See [test ownership](docs/test-ownership.md) for reuse and the retained host responsibilities.
+
 All portable behavior and new boundary regression tests are owned by this repository. The machine-readable test inventory lists package tests, consumer tests to retain, split tests and prohibited duplicates. App acceptance and integration tests are retained for the later adoption phase. They were not run or claimed by this review.
 
 ## Next-task execution notes
@@ -462,5 +468,7 @@ Merge only after required package checks pass. Publish through the existing defa
 API JSON, signature details and Markdown are generated from source reflection and checked for byte drift. Capability and service maps use the actual App v2 governance schemas. Handoff manifest hashes describe this source tree. This is a candidate record and keeps completion_claim false; no release-verification attestation has been fabricated.
 
 ## Validation recipe and observed local results
+
+Current conformance follow-up on PHP 8.5.10: 23 tests / 100 assertions; the ownership inventory gate also passes. Published baseline 0.1.1 is observed at 9ab8019cc7fbc32b2cd81da74d021bc294ece058. The 0.1.2 heading proposes a successor, not an observed release. Final-head full CI and independent artifact verification remain required.
 
 Run composer validate --strict and composer check on PHP 8.5 with real stable dependencies. Local PHP 8.5.10 source validation passed 12 tests, 31 assertions, PHPStan at the configured maximum level, coding standards, syntax, architecture and API drift checks. Where registry access was unavailable, local source validation used dependencies archived from exact published Git tags. The complete Package CI passed at source commit f1a95abd91c6479a93f6384dd7b759b5bc5936e5 ([run 34162173074](https://github.com/kumwe/navigation/actions/runs/34162173074)), including real Composer installation, security audit, package tests, release automation and the clean built-archive consumer. The same-branch handoff/schema-gate follow-up must also pass required checks before merge. The actual App PackageManifests::read parser was also used read-only to check this package governed manifests and handoff.

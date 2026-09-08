@@ -45,6 +45,7 @@
       "@architecture",
       "@analyse",
       "@cs",
+      "@dependency-readiness",
       "@ownership",
       "@test",
       "@examples",
@@ -53,7 +54,11 @@
     ],
     "composer:validate": "composer validate --strict",
     "manifests": "php tools/verify-governed-manifests.php",
-    "ownership": "php tools/verify-test-ownership.php"
+    "ownership": "php tools/verify-test-ownership.php",
+    "dependency-readiness": [
+      "bash tools/check-dependency-readiness.sh",
+      "bash tools/test-dependency-readiness.sh"
+    ]
   },
   "config": {
     "sort-packages": true
