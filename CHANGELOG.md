@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Standardize linked package/CI/runtime badges and current Core contract documentation.
+- Replace completed extraction handoffs with the durable release record and preserve manifest verification.
+
 ## [0.1.2]
 
 - Add reusable repository conformance for scope, ordering, version conflicts, path moves and cascading deletion.
