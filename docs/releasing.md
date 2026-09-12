@@ -1,7 +1,6 @@
 # Releasing
 
-The newest stable heading in CHANGELOG.md records the 0.1.1 candidate. The
-published baseline is 0.1.0. Maintainers review and rebase-merge the release PR into the default
+The newest stable heading in CHANGELOG.md records the version to publish or verify. Maintainers review and rebase-merge the release PR into the default
 branch. No manual setup command is required.
 
 The release workflow reuses the complete package CI at the actual post-rebase

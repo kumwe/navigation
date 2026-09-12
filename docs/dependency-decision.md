@@ -1,12 +1,11 @@
 # Dependency status
 
-The runtime dependency graph uses exact published Kumwe versions. The following source tags are the reviewed dependency coordinates; this table is not an external release attestation.
+Navigation requires PHP 8.5 and mbstring. It has no Kumwe runtime dependency: public records and repository ports
+carry scalar identities and neutral tree values. [Composer metadata](../composer.json) is authoritative.
 
-| Package | Exact version | Tag commit |
-| --- | --- | --- |
+The package is available through Packagist without root VCS overrides. Pre-1.0 consumers pin an exact verified
+Navigation version. Review any new dependency against the portable ownership boundary and validate the complete
+resolved graph and built-archive no-dev consumer before publication.
 
-Navigation has no Kumwe runtime dependency: its current public closure carries scalar identities and neutral tree/record ports.
-
-A floating `latest`, `*` or development branch is not an immutable release coordinate. A newer direct pin must be compatible with every transitive exact pin; update the dependency train bottom-up and verify each successor before publishing a dependent package. Existing exact dependencies are retained here to avoid creating an unsatisfiable mixed graph.
-
-Composer repository configuration is root-only. Until all packages are discoverable through Packagist, a consumer must reproduce the explicit VCS repositories from composer.json and those required by its full dependency graph. The built-archive consumer gate exercises this resolution.
+`composer dependency-readiness` verifies that dependency evidence agrees with the declared requirements,
+including the empty Kumwe dependency set. Independent artifact verification and Core acceptance remain separate.
