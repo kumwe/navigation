@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## [0.1.3] - 2026-09-15
+
+- Correct the release record change set to `KUMWE-CS-2026-035`, the sequence its migration `KUMWE-MIG-2026-035` already carries, so Core's ledger, change set and record share one identifier pair; `KUMWE-CS-2026-034` remains Content Model's.
 - Standardize linked package/CI/runtime badges and current Core contract documentation.
 - Replace completed extraction handoffs with the durable release record and preserve manifest verification.
 
