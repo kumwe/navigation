@@ -12,7 +12,7 @@ conflicts. Core supplies persistence, authorization, transactions and rendering.
 ## Installation and usage
 
 ```sh
-composer require kumwe/navigation:0.1.2
+composer require kumwe/navigation:0.1.3
 ```
 
 Requires PHP 8.5 and mbstring. Navigation has no other Kumwe runtime dependency. Construct values directly and

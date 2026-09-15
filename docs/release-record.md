@@ -2,7 +2,7 @@
 schema: kumwe-package-release-record/v1
 artifact_kind: framework_php
 migration_id: KUMWE-MIG-2026-035
-change_set: KUMWE-CS-2026-034
+change_set: KUMWE-CS-2026-035
 source:
   app:
     repository: https://github.com/kumwe/app
@@ -76,13 +76,13 @@ ownership:
   next_consumer: kumwe/app
   public_manifests:
     - path: resources/public-api/v1.json
-      sha256: fc1caa1c9b859e091d0cda6de0b5283458110ffaa6c4a8ea8e90060287dc7484
+      sha256: 145931da0b289eae0d3c7909c8e505436a7f21afdebba90769c0592ad789c1fe
     - path: resources/capabilities/v1.json
-      sha256: 84fb94a6c8d5f988b5a492c3aa2dbba6f6f4ba18c482480acbd07f86eeae922b
+      sha256: bd618af1a89da33ce6f528538a116f10ae612e39f3b626c6427c8a3432f012b7
     - path: resources/service-map/v1.json
-      sha256: 4a93bf6835f4b896af14756c6f542f50d68c7e26ce5cc28b637a65f275ff8020
+      sha256: 5c5a4a87404a3d4bdd1ed4e1b54e766d8ad7c214d1ab61d7f0c67a0747b8bc5e
     - path: resources/public-api/signature-details-v1.json
-      sha256: c21a9252fb7f5bf07f3900d95a74834227a57f9a080660ede1818dc5f0a350d7
+      sha256: 351810ca26acd40de694b6a1a0be1fc837a5f5560ecf3ab0168b75018c15f472
   intentionally_excluded:
     - NavigationService.php
     - PublicNavigation.php
@@ -296,9 +296,9 @@ documentation:
   integration_or_consumer: docs/integration.md
   examples:
     - examples/standalone.php
-  changelog_record: CHANGELOG.md#0.1.1
+  changelog_record: CHANGELOG.md#0.1.3
 release_expectations:
-  version_policy: SemVer; 0.1.1 candidate source release record, published baseline 0.1.0. Exact consumer pins follow independent artifact verification.
+  version_policy: SemVer; 0.1.3 source release record, published baseline 0.1.2. Exact consumer pins follow independent artifact verification.
   expected_artifact_types:
     - Composer ZIP
   required_checks:
